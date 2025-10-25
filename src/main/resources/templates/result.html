@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header text-center"
+                     th:classappend="${result.passed ? 'bg-success' : 'bg-danger'} + ' text-white'">
+                    <h3>Quiz Complete!</h3>
+                </div>
+
+                <div class="card-body text-center">
+                    <h4 th:text="${result.quiz.title}">Quiz Title</h4>
+
+                    <div class="my-4">
+                        <h1 class="display-3" th:text="${result.score} + '/' + ${result.totalQuestions}">8/10</h1>
+                        <h4 th:text="${#numbers.formatDecimal(result.percentage, 1, 2)} + '%'">80%</h4>
+                    </div>
+
+                    <div class="alert"
+                         th:classappend="${result.passed ? 'alert-success' : 'alert-warning'}">
+                        <h5 th:text="${result.message}">Great job!</h5>
+                    </div>
+
+                    <hr>
+
+                    <h5 class="mt-4 mb-3">Review Your Answers:</h5>
+
+                    <div th:each="question : ${result.quiz.questions}" class="text-start mb-3 p-3 border rounded">
+                        <p class="fw-bold mb-2" th:text="${question.question}">Question</p>
+
+                        <div th:each="option, iterStat : ${question.options}" class="ms-3">
+                            <span th:with="optionLetter=${#strings.substring('ABCDEFGHIJKLMNOPQRSTUVWXYZ', iterStat.index, iterStat.index + 1)}"
+                                  th:class="${result.userAnswers.get(question.id) == optionLetter ?
+                                           (question.correctAnswer == optionLetter ? 'text-success fw-bold' : 'text-danger fw-bold') :
+                                           (question.correctAnswer == optionLetter ? 'text-success fw-bold' : '')}">
+                                <span th:text="${optionLetter + '. ' + option}">A. Option</span>
+
+                                <span th:if="${result.userAnswers.get(question.id) == optionLetter}">
+                                    <span th:if="${question.correctAnswer == optionLetter}"
+                                          class="badge bg-success ms-2">✓ Your Answer (Correct)</span>
+                                    <span th:if="${question.correctAnswer != optionLetter}"
+                                          class="badge bg-danger ms-2">✗ Your Answer (Wrong)</span>
+                                </span>
+
+                                <span th:if="${question.correctAnswer == optionLetter && result.userAnswers.get(question.id) != optionLetter}"
+                                      class="badge bg-success ms-2">✓ Correct Answer</span>
+                            </span>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a th:href="@{/quiz/retake/{id}(id=${result.quiz.id})}" class="btn btn-warning me-2">
+                            🔄 Retake Quiz
+                        </a>
+                        <a href="/" class="btn btn-primary">
+                            🏠 Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

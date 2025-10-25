@@ -1,0 +1,71 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Countries -> Capitals Quiz",
+      "description": "Lets test your Country-Capital knowledge :)",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the capital of France?",
+          "options": ["London", "Paris", "Berlin", "Madrid"],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 2,
+          "question": "What is the capital of Japan?",
+          "options": ["Seoul", "Beijing", "Tokyo", "Bangkok"],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 3,
+          "question": "What is the capital of Australia?",
+          "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 4,
+          "question": "What is the capital of Canada?",
+          "options": ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+          "correctAnswer": "D"
+        },
+        {
+          "id": 5,
+          "question": "What is the capital of Brazil?",
+          "options": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 6,
+          "question": "What is the capital of Egypt?",
+          "options": ["Cairo", "Alexandria", "Giza", "Luxor"],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 7,
+          "question": "What is the capital of Spain?",
+          "options": ["Barcelona", "Madrid", "Valencia", "Seville"],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 8,
+          "question": "What is the capital of India?",
+          "options": ["Mumbai", "New Delhi", "Bangalore", "Kolkata"],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 9,
+          "question": "What is the capital of Germany?",
+          "options": ["Munich", "Hamburg", "Berlin", "Frankfurt"],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 10,
+          "question": "What is the capital of Italy?",
+          "options": ["Rome", "Milan", "Venice", "Florence"],
+          "correctAnswer": "A"
+        }
+      ]
+    }
+  ]
+}
