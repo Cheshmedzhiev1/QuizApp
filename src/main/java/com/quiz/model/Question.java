@@ -8,7 +8,8 @@ public class Question {
     private List<String> options;
     private String correctAnswer;
 
-    public Question() {}
+    public Question() {
+    }
 
     public Question(int id, String question, List<String> options, String correctAnswer) {
         this.id = id;
@@ -50,6 +51,6 @@ public class Question {
     }
 
     public boolean isCorrectAnswer(String answer) {
-        return correctAnswer != null && correctAnswer.equalsIgnoreCase(answer);
+        return this.correctAnswer.equals(answer);
     }
 }

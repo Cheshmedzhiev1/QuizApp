@@ -16,16 +16,31 @@ public class QuizService {
         shuffledQuiz.setTitle(quiz.getTitle());
         shuffledQuiz.setDescription(quiz.getDescription());
 
-        List<Question> shuffledQuestions = new ArrayList<>(quiz.getQuestions());
-        Collections.shuffle(shuffledQuestions);
+        List<Question> shuffledQuestions = new ArrayList<>();
 
-        for (Question question : shuffledQuestions) {
-            List<String> shuffledOptions = new ArrayList<>(question.getOptions());
+        for (Question originalQuestion : quiz.getQuestions()) {
+
+            Question shuffledQuestion = new Question();
+            shuffledQuestion.setId(originalQuestion.getId());
+            shuffledQuestion.setQuestion(originalQuestion.getQuestion());
+
+            String correctAnswerValue = originalQuestion.getCorrectAnswer();
+
+            List<String> shuffledOptions = new ArrayList<>(originalQuestion.getOptions());
             Collections.shuffle(shuffledOptions);
-            question.setOptions(shuffledOptions);
+            shuffledQuestion.setOptions(shuffledOptions);
+
+            int newIndex = shuffledOptions.indexOf(correctAnswerValue);
+
+            String newCorrectLetter = String.valueOf((char) ('A' + newIndex));
+            shuffledQuestion.setCorrectAnswer(newCorrectLetter);
+
+            shuffledQuestions.add(shuffledQuestion);
         }
 
+        Collections.shuffle(shuffledQuestions);
         shuffledQuiz.setQuestions(shuffledQuestions);
+
         return shuffledQuiz;
     }
 
@@ -35,7 +50,7 @@ public class QuizService {
 
         for (Question question : quiz.getQuestions()) {
             String userAnswer = userAnswers.get(question.getId());
-            if (userAnswer != null && question.isCorrectAnswer(userAnswer)) {
+            if (userAnswer != null && userAnswer.equals(question.getCorrectAnswer())) {
                 score++;
             }
         }
