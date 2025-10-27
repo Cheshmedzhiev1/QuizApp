@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class QuizLoader {
 
-    private List<Quiz> quizzes;
+    private List<Quiz> quizzes;    // holds the list of al the quizzes loaded from our json file
 
     public QuizLoader() {
         loadQuizzes();
@@ -21,16 +21,16 @@ public class QuizLoader {
 
     private void loadQuizzes() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            ClassPathResource resource = new ClassPathResource("data.json");
-            InputStream inputStream = resource.getInputStream();
+            ObjectMapper mapper = new ObjectMapper();   // converts between json and java objects
+            ClassPathResource resource = new ClassPathResource("data.json");    // directs us to the exact file
+            InputStream inputStream = resource.getInputStream();   //opens stream to reads contet of the json file
 
-            QuizWrapper wrapper = mapper.readValue(inputStream, QuizWrapper.class);
+            QuizWrapper wrapper = mapper.readValue(inputStream, QuizWrapper.class);  // reads the json into object
             this.quizzes = wrapper.getQuizzes();
 
         } catch (IOException e) {
             e.printStackTrace();
-            this.quizzes = Arrays.asList();
+            this.quizzes = Arrays.asList();  // returns empty list to prevent app crash
         }
     }
 
