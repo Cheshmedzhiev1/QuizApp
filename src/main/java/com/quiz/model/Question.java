@@ -1,16 +1,23 @@
 package com.quiz.model;
 
 import java.util.List;
+import java.util.Set;
 
+/**
+ * Represents a single question in a quiz with multiple choice options
+ */
 public class Question {
     private int id;
     private String question;
     private List<String> options;
     private String correctAnswer;
 
+
+    // Default no-argument constructor required by javaBean spec
     public Question() {
     }
 
+    // All-arguments constructor for convenient object creation
     public Question(int id, String question, List<String> options, String correctAnswer) {
         this.id = id;
         this.question = question;

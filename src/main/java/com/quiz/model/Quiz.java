@@ -2,6 +2,10 @@ package com.quiz.model;
 
 import java.util.List;
 
+/**
+ * Represents a complete quiz containing multiple questions
+ *
+ */
 public class Quiz {
     private int id;
     private String title;

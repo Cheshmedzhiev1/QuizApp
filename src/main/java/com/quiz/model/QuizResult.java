@@ -2,6 +2,10 @@ package com.quiz.model;
 
 import java.util.Map;
 
+/**
+ * Represents the results and statistics of a completed quiz attempt
+ *
+ */
 public class QuizResult {
     private Quiz quiz;
     private Map<Integer, String> userAnswers;
