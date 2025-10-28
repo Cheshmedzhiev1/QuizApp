@@ -17,10 +17,6 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles QuizException - custom exceptions thrown by quiz operations
-     *
-     * @param ex The QuizException that was thrown
-     * @param request The HTTP request
-     * @return ModelAndView with error page and error details
      */
     @ExceptionHandler(QuizException.class)
     public ModelAndView handleQuizException(QuizException ex, HttpServletRequest request) {
@@ -37,10 +33,6 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles IllegalArgumentException - typically validation errors
-     *
-     * @param ex The IllegalArgumentException that was thrown
-     * @param request The HTTP request
-     * @return ModelAndView with error page and error details
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ModelAndView handleIllegalArgumentException(IllegalArgumentException ex, HttpServletRequest request) {
@@ -56,10 +48,6 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles IllegalStateException - when application is in an invalid state
-     *
-     * @param ex The IllegalStateException that was thrown
-     * @param request The HTTP request
-     * @return ModelAndView with error page and error details
      */
     @ExceptionHandler(IllegalStateException.class)
     public ModelAndView handleIllegalStateException(IllegalStateException ex, HttpServletRequest request) {
@@ -76,10 +64,6 @@ public class GlobalExceptionHandler {
     /**
      * Handles all other generic exceptions
      * This is a catch-all handler for any unexpected errors
-     *
-     * @param ex The Exception that was thrown
-     * @param request The HTTP request
-     * @return ModelAndView with error page and generic error message
      */
     @ExceptionHandler(Exception.class)
     public ModelAndView handleGenericException(Exception ex, HttpServletRequest request) {

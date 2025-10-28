@@ -11,7 +11,6 @@ public class QuizException extends RuntimeException {
 
     /**
      * Constructor with message only
-     * @param message The error message
      */
     public QuizException(String message) {
         super(message);
@@ -21,8 +20,6 @@ public class QuizException extends RuntimeException {
 
     /**
      * Constructor with message and title
-     * @param errorTitle The error title
-     * @param message The error message
      */
     public QuizException(String errorTitle, String message) {
         super(message);
@@ -32,9 +29,6 @@ public class QuizException extends RuntimeException {
 
     /**
      * Constructor with full details
-     * @param errorTitle The error title
-     * @param message The error message
-     * @param errorDetails Additional error details
      */
     public QuizException(String errorTitle, String message, String errorDetails) {
         super(message);
