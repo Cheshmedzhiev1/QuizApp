@@ -72,7 +72,7 @@ public class QuizLoader {
         public List<Quiz> getQuizzes() {
             return quizzes;
         }
-       // sets the list of quizzes
+        // sets the list of quizzes
         public void setQuizzes(List<Quiz> quizzes) {
             this.quizzes = quizzes;
         }
